@@ -1,0 +1,37 @@
+# === Java Compiled Files ===
+*.class
+*.jar
+*.war
+*.ear
+
+# === Java Log Files ===
+*.log
+
+# === Build Directories ===
+bin/
+target/
+out/
+build/
+
+# === Eclipse Files ===
+.project
+.classpath
+.settings/
+.metadata/
+
+# === IntelliJ IDEA Files ===
+.idea/
+*.iml
+*.iws
+
+# === OS Generated Files ===
+.DS_Store
+Thumbs.db
+
+# === Maven or Gradle Wrapper ===
+.mvn/
+.gradle/
+
+# === Optional: environment configs ===
+*.env
+*.properties
