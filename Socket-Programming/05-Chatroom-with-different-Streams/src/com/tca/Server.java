@@ -15,16 +15,17 @@ public class Server {
 	public static void main(String[] args) {
 		
 		try(ServerSocket server = new ServerSocket(1024)){
-			System.out.println("Chatroom is open now....");
-			System.out.println("Waiting for clients !");
+			System.out.println("\u001B[32mChatroom is open now....\u001B[0m");
+			System.out.println("\u001B[93mWaiting for clients !\u001B[0m");
 			
+
 			int client = 0;
 			
 			while(true) {
 				Socket socket = server.accept();
 			
 				new Thread(new ClientHandler(socket, ++client)).start();
-				System.out.println("Client " + client + " is connected !");
+				System.out.println("\u001B[32mClient " + client + " is connected !\u001B[0m");
 			}
 			
 		}
@@ -50,14 +51,34 @@ public class Server {
 	        for (ClientHandler client : Server.clients) {
 	            try {
 	            	if(sender != client)
-	            		client.getWriter().println(message);
+	            		client.getWriter().println("\u001B[95m" +message + "\u001B[0m");
 	            } catch (Exception e) {
 	                // ignore dead clients
 	            }
 	        }
 	    }
 	}
-
-	
-	
 }
+
+
+/*
+System.out.println("\u001B[30m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[31m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[32m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[33m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[34m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[35m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[36m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[37m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[90m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[91m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[92m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[93m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[94m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[95m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[96m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[97m" + "Rahul joined" + "\u001B[0m");
+System.out.println("\u001B[1mBold Text\u001B[0m");
+System.out.println("\u001B[30;1;4mUnderlined Text\u001B[0m");
+
+*/

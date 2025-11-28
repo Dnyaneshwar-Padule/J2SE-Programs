@@ -53,7 +53,7 @@ public class ClientHandler implements Runnable {
 				e.printStackTrace();
 			}
 			Server.removeClient(this);
-			System.out.println("Client " + clientId + " is disconnected !");
+			System.out.println("\u001B[31mClient " + clientId + " is disconnected !\u001B[0m");
 			Server.broadcast(this, "Client " + clientId + " is disconnected !");			
 		}
 	}
