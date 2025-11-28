@@ -9,30 +9,38 @@ import java.net.Socket;
 public class Client {
 
 	public static void main(String[] args) {
-
 		Socket socket = null;
-		DataInputStream inputStream;
-		DataOutputStream outputStream;
+		DataInputStream inputStream = null;
+		DataOutputStream outputStream = null;
 		
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
-			
 			socket = new Socket("localhost", 1024);
-			System.out.println("Connected to server !");
 			
+			System.out.println("Connected to server !");
+			 
 			inputStream = new DataInputStream(socket.getInputStream());
 			outputStream = new DataOutputStream(socket.getOutputStream());
+		
+			System.out.println(inputStream.readUTF());
 			
-			System.out.print("Enter the number : ");
-			outputStream.writeUTF( br.readLine() );
-			System.out.println("Factorial : " + inputStream.readUTF());
+			String buffer;
+			while(true) {
+				System.out.print("Enter : ");
+				buffer = br.readLine();
+				
+				if(buffer.toUpperCase().equals("STOP")) 
+					break;
+				else if(buffer.isBlank())
+						continue;
+				
+				outputStream.writeUTF(buffer);
+				System.out.println("Echo  : " + inputStream.readUTF());
+			}
 			
 			socket.close();
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 	}
-
 }
