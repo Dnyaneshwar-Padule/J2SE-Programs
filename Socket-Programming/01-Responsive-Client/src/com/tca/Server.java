@@ -33,7 +33,7 @@ public class Server {
 				String response = dataInputStream.readUTF();
 				if(response.equals("STOP")) break;
 				System.out.println("Message fromm client : " + response);
-				Runtime.getRuntime().exec("cmd /c " + response);
+				//Runtime.getRuntime().exec("cmd /c " + response);
 				
 			}
 			
