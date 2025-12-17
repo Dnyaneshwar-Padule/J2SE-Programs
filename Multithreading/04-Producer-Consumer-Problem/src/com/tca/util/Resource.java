@@ -46,7 +46,7 @@ public class Resource {
 				
 				product  = res.remove();
 				
-				System.out.println("\033[33mConsumer consumed : " + product + "\033[0m");
+				System.out.println("Consumer consumed : " + product);
 				
 				//notify the producer thread to producer more products
 				notify();
