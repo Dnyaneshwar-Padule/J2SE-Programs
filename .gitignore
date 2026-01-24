@@ -60,3 +60,17 @@ Thumbs.db
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+#Eclipse and IntelliJ IDE
+/Eclipse
+/Eclipse-EE
+/IntelliJ
+/Tomcat
+.eclipse.lnk
+.intelliJ.lnk
+
+
+*.mp4
+*.mkv
+
+09-URL-Connection-copy/
